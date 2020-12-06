@@ -28,6 +28,7 @@ Make this structure in root folder:
 * src
 	* pages
 	* routes
+	* templates
 	* styles
 	* utils
 	* index.js
