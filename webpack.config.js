@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -11,21 +12,11 @@ module.exports = {
     // abrir la APP en el BROWSER
     // open: true,
     open: 'chrome',
-
-    // HACK para permitir ver la APP desde otros dispositivos
-    // host: '0.0.0.0',
-
-    // ver el progreso de compilacion en la consola
-    progress: false,
-
-    // esto para que todas las URLs que fallen (404) devuelvan nuestro index.html
-    // historyApiFallback: true,
-
-    // para que los errores en consola aparescan en un overlay en el BROWSER
-    // overlay: true,
-
-    // habilitar HMR
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, './dist'),
+    compress: true,
     hot: true,
+    port: 8080,
   },
   resolve: {
     extensions: ['.js'],
@@ -46,6 +37,9 @@ module.exports = {
       inject: true,
       template: './public/index.html',
       filename: './index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: './src/styles/styles.css', to: '' }],
     }),
   ],
 };
