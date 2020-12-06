@@ -28,6 +28,7 @@ Make this structure in root folder:
 * src
 	* pages
 	* routes
+	* templates
 	* styles
 	* utils
 	* index.js
@@ -60,6 +61,26 @@ In terminal:
 		    path: path.resolve(__dirname),
 		    filename: 'main.js'
 	    },
+	    devServer: {
+		    // abrir la APP en el BROWSER
+		    // open: true, (navegador por defecto)
+		    open: 'chrome',
+
+		    // HACK para permitir ver la APP desde otros dispositivos
+		    // host: '0.0.0.0',
+
+		    // ver el progreso de compilacion en la consola
+		    progress: true,
+
+		    // esto para que todas las URLs que fallen (404) devuelvan nuestro index.html
+		    // historyApiFallback: true,
+
+		    // para que los errores en consola aparescan en un overlay en el BROWSER
+		    // overlay: true,
+
+		    // habilitar HMR
+		    hot: true,
+	    },
 	    resolve: {
 		    extensions: ['.js'],
 	    },
@@ -75,13 +96,13 @@ In terminal:
 		    ]
 	    },
 	    plugins: [
-		    new HtmlWebPackPlugin([
+		    new HtmlWebPackPlugin(
 			    {
 				    inject: true,
 				    template: './public/index.html',
 				    filename: './index.html',  
 			    }
-		    ])
+		    )
 	    ]
     }
 
@@ -100,5 +121,9 @@ In terminal:
 
     "scripts": {
 	    "build": "webpack --mode production",
-	    "start":"webpack-dev-server --open --mode development"
+	    "start":"webpack serve"
     }
+    
+    
+    Configuracion adicional para webpack 5:
+    https://es.geanmarroquin.com/blog/configurar-webpack-5/
