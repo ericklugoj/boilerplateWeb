@@ -2,8 +2,8 @@ const Character = () => {
   const view = `
     <div class="Characters-inner">
       <article class="Characters-card">
-      <img src="image" alt="name"> 
-      <h2>Name</h2>
+        <img src="image" alt=""> 
+        <h2>Name</h2>
       </article>
       <article class="Characters-card">
         <h3>Episodes:</h3>

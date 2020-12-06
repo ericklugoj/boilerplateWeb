@@ -16,7 +16,7 @@ module.exports = {
     // host: '0.0.0.0',
 
     // ver el progreso de compilacion en la consola
-    progress: true,
+    progress: false,
 
     // esto para que todas las URLs que fallen (404) devuelvan nuestro index.html
     // historyApiFallback: true,
