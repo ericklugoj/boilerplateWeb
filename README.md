@@ -101,5 +101,9 @@ In terminal:
 
     "scripts": {
 	    "build": "webpack --mode production",
-	    "start":"webpack-dev-server --open --mode development"
+	    "start":"webpack serve"
     }
+    
+    
+    Configuracion adicional para webpack 5:
+    https://es.geanmarroquin.com/blog/configurar-webpack-5/
